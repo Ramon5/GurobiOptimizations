@@ -1,39 +1,39 @@
+import abc
+import json
+from decimal import Decimal
+
 import gurobipy as gb
 from gurobipy import GRB
-from decimal import Decimal
-from abc import ABC
-import abc
 
-class Base(ABC):
+
+class Base(abc.ABC):
     """
         This abstract base class to model optimizations
     """
 
-    def __init__(self, name="default"):
+    def __init__(self, name="default", algorithm=-1):
         self._message = ""
         self.model = gb.Model(name)
+        self.model.setParam(GRB.Param.OutputFlag, 0)
+        self.model.setParam(GRB.Param.Method, algorithm)
     
     def message(self, message: str):
-        """ set a message for min or max objective """
+        """
+            set a message for min or max objective
+        """
         self._message = message
+    
+    def get_message(self) -> str:
+        return f"{self._message}\n\n"
 
     @abc.abstractmethod
     def settings(self):
         """ set decision variables and restrictions to optimization problem """
         pass
-
-    def show(self):
-        """ show variables that maximize or minimize the objective """
-        objective = self.settings()
-        print(self._message)
-        for v in self.model.getVars():
-            print(f"{v.varName}: {int(v.x)}")
-
-        print('\nLucro obtido: R$ {:.2f}'.format(round(objective.getValue(), 2)))
     
     def optimize(self):
         """ run the gurobi optimization"""
-        self.show()
+        return self.settings()
 
 
 class Bootmaker(Base):
@@ -53,7 +53,7 @@ class Bootmaker(Base):
 
         self.model.optimize()
 
-        return objective
+        return json.loads(self.model.getJSONSolution()), self.model.getVars()
 
 
 class ProductFactory(Base):
@@ -72,7 +72,7 @@ class ProductFactory(Base):
 
         self.model.optimize()
 
-        return objective
+        return json.loads(self.model.getJSONSolution()), self.model.getVars()
 
 class TVProgram(Base):
     
@@ -89,7 +89,7 @@ class TVProgram(Base):
 
         self.model.optimize()
 
-        return objective
+        return json.loads(self.model.getJSONSolution()), self.model.getVars()
 
 class BeltFactory(Base):
     
@@ -107,7 +107,7 @@ class BeltFactory(Base):
 
         self.model.optimize()
 
-        return objective
+        return json.loads(self.model.getJSONSolution()), self.model.getVars()
 
 class Company(Base):
     
@@ -124,4 +124,4 @@ class Company(Base):
 
         self.model.optimize()
 
-        return objective
+        return json.loads(self.model.getJSONSolution()), self.model.getVars()

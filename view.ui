@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>View</class>
+ <widget class="QMainWindow" name="View">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>753</width>
+    <height>431</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Otimizações com Gurobi</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>181</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Selecione um algoritmo:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbAlgorithm">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Automático</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Primal Simplex</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dual Simplex</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Barrier</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Concurrent</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Deterministic concurrent</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Deterministic concurrent simplex</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>30</y>
+      <width>191</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Selecione um problema:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbProblem">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>60</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Sapateiro</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fábrica de produtos</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Rede de TV</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Fábrica de cintos</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Racionalização de recursos</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QTextEdit" name="solutionPnael">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>731</width>
+      <height>301</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSolve">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>60</y>
+      <width>121</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Resolver</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSair">
+   <property name="text">
+    <string>Sair</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
