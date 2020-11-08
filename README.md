@@ -25,7 +25,7 @@ o comando acima criará o ambiente virtual dentro do projeto.
 
 ### Execução
 
-No terminal:
+No terminal, navegue até a pasta do projeto e execute:
 
 $ make run
 <br><br>
