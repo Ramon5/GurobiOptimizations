@@ -73,9 +73,8 @@ forneceu a seguinte tabela de uso de recursos.
 | Produtos                            	| Recursos R1 por UN. 	| Recursos R2 por UN. 	| Recursos R3 por UN. 	|   	|
 |-------------------------------------	|---------------------	|---------------------	|---------------------	|---	|
 | P1 P2                               	| 2 4                 	| 3 2                 	| 5 3                 	|   	|
-| Disponibilidade de recursos por mês 	| 100                 	| 90                  	| 120                 	|   	|
-|                                     	|                     	|                     	|                     	|   	|
-
+| Disponibilidade de recursos por mês 	| 100                 	| 90                  	| 120
+<br>
 Que produção mensal de P1 e P2 traz o maior lucro para a empresa? Construa o modelo do
 sistema.
 
