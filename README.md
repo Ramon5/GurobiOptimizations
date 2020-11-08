@@ -13,8 +13,8 @@
 ### Instruções de utilização
 
 Com o gurobi devidamente instalado e configurado, clone o projeto: \
-`git clone git@github.com:Ramon5/GurobiOptimizations.git`
-ou
+`git clone git@github.com:Ramon5/GurobiOptimizations.git`<br>
+ou<br>
 `git clone https://github.com/Ramon5/GurobiOptimizations.git`
 
 navegue até a pasta do projeto:
