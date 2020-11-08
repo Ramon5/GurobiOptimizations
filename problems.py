@@ -1,6 +1,7 @@
 import json
 from decimal import Decimal
-from base import Base, GRB
+
+from base import GRB, Base
 
 
 class Bootmaker(Base):
