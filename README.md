@@ -70,10 +70,10 @@ departamento de vendas sobre o preço de colocação no mercado, verificou-se qu
 um lucro de $ 120,00 por unidade e P2, $ 150,00 por unidade. O departamento de produção
 forneceu a seguinte tabela de uso de recursos.
 
-| Produtos                            	| Recursos R1 por UN. 	| Recursos R2 por UN. 	| Recursos R3 por UN. 	|   	|
-|-------------------------------------	|---------------------	|---------------------	|---------------------	|---	|
-| P1<br>P2                               	| 2<br> 4                 	| 3 <br>2                 	| 5 <br>3                 	|   	|
-| Disponibilidade de recursos por mês 	| 100                 	| 90                  	| 120
+| Produtos                            	| Recursos R1 por UN. 	| Recursos R2 por UN. 	| Recursos R3 por UN. 	|
+|-------------------------------------	|---------------------	|---------------------	|---------------------	|
+| P1<br>P2                               	| 2<br>4                 	| 3<br>2                 	| 5<br>3                 	|
+| Disponibilidade de recursos por mês 	| 100                 	| 90                  	| 120                 	|
 <br>
 Que produção mensal de P1 e P2 traz o maior lucro para a empresa? Construa o modelo do
 sistema.
