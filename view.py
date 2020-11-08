@@ -9,8 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from optmizations import (BeltFactory, Bootmaker, Company, ProductFactory,
-                          TVProgram)
+from problems import BeltFactory, Bootmaker, Company, ProductFactory, TVProgram
 
 
 class Ui_View(object):
@@ -70,7 +69,9 @@ class Ui_View(object):
         self.cbAlgorithm.setItemText(3, _translate("View", "Barrier"))
         self.cbAlgorithm.setItemText(4, _translate("View", "Concurrent"))
         self.cbAlgorithm.setItemText(5, _translate("View", "Deterministic concurrent"))
-        self.cbAlgorithm.setItemText(6, _translate("View", "Deterministic concurrent simplex"))
+        self.cbAlgorithm.setItemText(
+            6, _translate("View", "Deterministic concurrent simplex")
+        )
         self.label_2.setText(_translate("View", "Selecione um problema:"))
         self.cbProblem.setItemText(0, _translate("View", "Sapateiro"))
         self.cbProblem.setItemText(1, _translate("View", "Fábrica de produtos"))
@@ -79,48 +80,45 @@ class Ui_View(object):
         self.cbProblem.setItemText(4, _translate("View", "Racionalização de recursos"))
         self.btnSolve.setText(_translate("View", "Resolver"))
         self.actionSair.setText(_translate("View", "Sair"))
-    
+
     def run_algorithm(self):
         self.solutionPanel.setText("")
         choice = self.cbProblem.currentIndex()
-        algorithm = -1 if self.cbAlgorithm.currentIndex() == 0 else self.cbAlgorithm.currentIndex()
+        algorithm = (
+            -1
+            if self.cbAlgorithm.currentIndex() == 0
+            else self.cbAlgorithm.currentIndex()
+        )
         model = None
         if choice == 0:
             model = Bootmaker("sapateiro", algorithm=algorithm)
             model.message("Quantidade de sapato e cinto que maximizam os lucros")
+            model.solution_message("Lucro resultante R$")
         elif choice == 1:
             model = ProductFactory("produto", algorithm=algorithm)
             model.message("Quantidade do produto P1 e P2 que maximizam os lucros")
-        elif choice ==2:
-            model = TVProgram("TV", algorithm=algorithm)
+            model.solution_message("Lucro resultante R$")
+        elif choice == 2:
+            model = TVProgram("TV", algorithm=algorithm, default_format=int)
             model.message("Quantidade de exibições semanais dos programas A e B")
+            model.solution_message("Quantidade de telespectadores")
         elif choice == 3:
             model = BeltFactory("cinto", algorithm=algorithm)
             model.message("Quantidade de cinto M1 e M2")
+            model.solution_message("Lucro resultante R$")
         elif choice == 4:
             model = Company("empresa", algorithm=algorithm)
             model.message("Quantidade de P1 e P2 mensal que maximizam os lucros")
-        
-        json, variables = model.optimize()
-        
-        response = self._get_formated_response(json)
+            model.solution_message("Lucro resultante R$")
 
-        text = model.get_message()
+        message = model.optimize()
 
-        for v in variables:
-            text += f"Qtd. {v.varName}: {int(v.x)}\n"
-        
-        text += response
+        self.solutionPanel.setText(message)
 
-        self.solutionPanel.setText(text)
-
-    def _get_formated_response(self, json) -> str:
-        solution = json["SolutionInfo"]
-        text = "\nLucro resultante R$ {:.2f}".format(float(solution['ObjVal']))
-        return text
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     View = QtWidgets.QMainWindow()
     ui = Ui_View()
