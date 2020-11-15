@@ -10,6 +10,10 @@
 4 - virtualenv ou virtualenvwrapper \
 5 - gurobi: https://www.gurobi.com/downloads/gurobi-software/
 
+### Tutorial da instalação do Gurobi
+
+https://www.youtube.com/watch?v=H-dGF3GfzNs&feature=youtu.be
+
 ### Instruções de utilização
 
 Com o gurobi devidamente instalado e configurado, clone o projeto: \
