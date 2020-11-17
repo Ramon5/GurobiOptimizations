@@ -29,6 +29,10 @@ o comando acima criará o ambiente virtual dentro do projeto.
 
 ### Execução
 
+Obs.: Ative o virtualenv antes de executar, na pasta do projeto execute o comando abaixo:
+
+$ . env/bin/activate
+
 No terminal, navegue até a pasta do projeto e execute:
 
 $ make run
